@@ -1,0 +1,47 @@
+<div class="container">
+        <%= form_with url: '/register', method: :post, class: "register-form" do %>
+            <h1>Register Form</h1>
+            <div class="form-row">
+                <div class="form-group">
+                    <%= label_tag :firstName, "First Name" %>
+                    <%= text_field_tag :firstName, nil, required: true %>
+                </div>
+                <div class="form-group">
+                    <%= label_tag :lastName, "Last Name" %>
+                    <%= text_field_tag :lastName, nil, required: true %>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <%= label_tag :birthday, "Birthday" %>
+                    <%= date_field_tag :birthday, nil, required: true %>
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <%= radio_button_tag :gender, 'male', true, id: 'male' %>
+                        <%= label_tag :male, "Male" %>
+                        <%= radio_button_tag :gender, 'female', false, id: 'female' %>
+                        <%= label_tag :female, "Female" %>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <%= label_tag :email, "Email" %>
+                    <%= email_field_tag :email, nil, required: true %>
+                </div>
+                <div class="form-group">
+                    <%= label_tag :phone, "Phone Number" %>
+                    <%= telephone_field_tag :phone, nil, required: true %>
+                </div>
+            </div>
+            <div class="form-group">
+                <%= label_tag :subject, "Subject" %>
+                <%= select_tag :subject, options_for_select([['Choose option', nil], ['English', 'option1'], ['Science', 'option2'], ['Mathematics', 'option3']]), required: true %>
+            </div>
+            <div class="button">
+                <%= submit_tag "Submit" %>
+            </div>
+        <% end %>
+    </div>
